@@ -11,7 +11,7 @@ const Navigation = () => {
     { name: "Solutions", href: "#solutions", hasDropdown: true },
     { name: "Technologies", href: "#technologies", hasDropdown: false },
     { name: "Industries", href: "#industries", hasDropdown: false },
-    { name: "About", href: "#about", hasDropdown: false },
+    { name: "About", href: "/about", hasDropdown: false },
     { name: "Our Work", href: "#work", hasDropdown: false },
     { name: "Blog", href: "#blog", hasDropdown: false },
   ];
