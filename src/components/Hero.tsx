@@ -51,7 +51,7 @@ const Hero = () => {
               </Button>
             </div>
 
-            <div className="mt-12 grid grid-cols-3 gap-8">
+            <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center">
                 <div className="text-2xl md:text-3xl font-bold text-primary">5,000+</div>
                 <div className="text-sm text-muted-foreground">Expert Developers</div>
@@ -59,6 +59,10 @@ const Hero = () => {
               <div className="text-center">
                 <div className="text-2xl md:text-3xl font-bold text-primary">98%</div>
                 <div className="text-sm text-muted-foreground">Client Satisfaction</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl md:text-3xl font-bold text-primary">40+</div>
+                <div className="text-sm text-muted-foreground">Countries Served</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl md:text-3xl font-bold text-primary">24/7</div>
