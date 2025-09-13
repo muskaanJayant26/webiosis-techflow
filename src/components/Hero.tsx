@@ -4,40 +4,57 @@ import heroImage from "@/assets/hero-image.jpg";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* 3D Animated Background */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-background via-background/95 to-background/90">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-900">
+      {/* Dark 3D Animated Background */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-black via-gray-900/95 to-black">
         {/* Primary 3D Moving Elements */}
         <div className="absolute inset-0 overflow-hidden">
           
-          {/* Large Orbital Spheres */}
+          {/* Dark Floating Alphabet Letters */}
+          {['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'].map((letter, index) => (
+            <div
+              key={letter}
+              className="absolute floating-sphere opacity-20 text-white/30 font-bold text-4xl md:text-6xl select-none pointer-events-none"
+              style={{
+                left: `${(index * 3.8) % 100}%`,
+                top: `${(index * 4.2) % 100}%`,
+                animationDelay: `${index * 0.5}s`,
+                animationDuration: `${10 + (index * 0.3)}s`,
+                filter: 'blur(1px)'
+              }}
+            >
+              {letter}
+            </div>
+          ))}
+          
+          {/* Large Dark Orbital Spheres */}
           <div className="absolute top-1/3 left-1/4 w-48 h-48 floating-sphere">
-            <div className="w-full h-full rounded-full bg-gradient-to-br from-primary/8 to-secondary/6 blur-xl"></div>
+            <div className="w-full h-full rounded-full bg-gradient-to-br from-purple-500/20 to-blue-500/15 blur-xl"></div>
           </div>
           
           <div className="absolute bottom-1/4 right-1/3 w-56 h-56 floating-sphere" style={{ animationDelay: '5s', animationDuration: '15s' }}>
-            <div className="w-full h-full rounded-full bg-gradient-to-tl from-secondary/10 to-primary/8 blur-2xl"></div>
+            <div className="w-full h-full rounded-full bg-gradient-to-tl from-blue-500/25 to-purple-500/20 blur-2xl"></div>
           </div>
           
-          {/* Dynamic 3D Cubes with Depth */}
-          <div className="absolute top-1/5 right-1/4 w-20 h-20 rotating-cube opacity-30">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/25 to-transparent rounded-lg transform rotate-12 shadow-lg"></div>
-            <div className="absolute inset-0 bg-gradient-to-tl from-secondary/20 to-transparent rounded-lg transform -rotate-6 translate-x-3 translate-y-3"></div>
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary/15 to-transparent rounded-lg transform rotate-45 translate-x-1 translate-y-1"></div>
+          {/* Dark Dynamic 3D Cubes with Depth */}
+          <div className="absolute top-1/5 right-1/4 w-20 h-20 rotating-cube opacity-40">
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-400/30 to-transparent rounded-lg transform rotate-12 shadow-2xl shadow-purple-500/20"></div>
+            <div className="absolute inset-0 bg-gradient-to-tl from-blue-400/25 to-transparent rounded-lg transform -rotate-6 translate-x-3 translate-y-3"></div>
+            <div className="absolute inset-0 bg-gradient-to-tr from-purple-400/20 to-transparent rounded-lg transform rotate-45 translate-x-1 translate-y-1"></div>
           </div>
           
-          <div className="absolute bottom-1/3 left-1/5 w-16 h-16 rotating-cube opacity-25" style={{ animationDelay: '8s' }}>
-            <div className="absolute inset-0 bg-gradient-to-br from-secondary/30 to-transparent rounded-md transform rotate-45"></div>
-            <div className="absolute inset-0 bg-gradient-to-tl from-primary/25 to-transparent rounded-md transform -rotate-12 translate-x-2 translate-y-2"></div>
+          <div className="absolute bottom-1/3 left-1/5 w-16 h-16 rotating-cube opacity-35" style={{ animationDelay: '8s' }}>
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-400/35 to-transparent rounded-md transform rotate-45"></div>
+            <div className="absolute inset-0 bg-gradient-to-tl from-purple-400/30 to-transparent rounded-md transform -rotate-12 translate-x-2 translate-y-2"></div>
           </div>
           
-          {/* Flowing Wave Elements */}
-          <div className="absolute top-1/2 left-1/6 w-32 h-32 wave-motion opacity-20">
-            <div className="w-full h-full bg-gradient-to-r from-primary/15 to-secondary/15 rounded-full blur-lg"></div>
+          {/* Dark Flowing Wave Elements */}
+          <div className="absolute top-1/2 left-1/6 w-32 h-32 wave-motion opacity-30">
+            <div className="w-full h-full bg-gradient-to-r from-purple-400/25 to-blue-400/25 rounded-full blur-lg"></div>
           </div>
           
-          <div className="absolute top-2/3 right-1/5 w-28 h-28 wave-motion opacity-25" style={{ animationDelay: '4s' }}>
-            <div className="w-full h-full bg-gradient-to-l from-secondary/20 to-primary/20 rounded-full blur-md"></div>
+          <div className="absolute top-2/3 right-1/5 w-28 h-28 wave-motion opacity-35" style={{ animationDelay: '4s' }}>
+            <div className="w-full h-full bg-gradient-to-l from-blue-400/30 to-purple-400/30 rounded-full blur-md"></div>
           </div>
           
           {/* Pulsing 3D Depth Elements */}
