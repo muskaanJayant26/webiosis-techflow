@@ -95,29 +95,77 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* 3D Floating Elements */}
-      <div className="absolute top-1/4 right-1/4 w-32 h-32 bg-primary/10 rounded-full blur-xl floating-3d" />
-      <div className="absolute bottom-1/4 left-1/4 w-48 h-48 bg-secondary/10 rounded-full blur-xl floating-3d" style={{ animationDelay: '2s' }} />
-      
-      {/* 3D Geometric Shapes */}
-      <div className="absolute top-1/3 left-1/6 w-16 h-16 cube-3d opacity-60">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-secondary/30 rounded-lg transform rotate-12"></div>
-        <div className="absolute inset-0 bg-gradient-to-tl from-secondary/25 to-primary/25 rounded-lg transform -rotate-6 translate-x-2 translate-y-2"></div>
-      </div>
-      
-      <div className="absolute bottom-1/3 right-1/6 w-20 h-20 cube-3d opacity-50" style={{ animationDelay: '1s' }}>
-        <div className="absolute inset-0 bg-gradient-to-br from-secondary/35 to-primary/35 rounded-xl transform rotate-45"></div>
-        <div className="absolute inset-0 bg-gradient-to-tl from-primary/30 to-secondary/30 rounded-xl transform -rotate-12 translate-x-3 translate-y-3"></div>
-      </div>
-      
-      {/* Animated Grid Background */}
-      <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px),
-                           linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
-          backgroundSize: '100px 100px',
-          animation: 'float 8s ease-in-out infinite'
-        }}></div>
+      {/* Advanced 3D Background Animation System */}
+      <div className="absolute inset-0 particle-system overflow-hidden pointer-events-none">
+        
+        {/* Large Floating Spheres */}
+        <div className="absolute top-1/4 right-1/4 w-40 h-40 floating-sphere">
+          <div className="w-full h-full rounded-full bg-gradient-to-br from-primary/15 to-secondary/15 blur-lg"></div>
+        </div>
+        
+        <div className="absolute bottom-1/3 left-1/5 w-32 h-32 floating-sphere" style={{ animationDelay: '4s' }}>
+          <div className="w-full h-full rounded-full bg-gradient-to-br from-secondary/12 to-primary/12 blur-lg"></div>
+        </div>
+        
+        {/* Rotating 3D Cubes */}
+        <div className="absolute top-1/2 left-1/6 w-16 h-16 rotating-cube opacity-40">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-transparent rounded-lg transform rotate-12"></div>
+          <div className="absolute inset-0 bg-gradient-to-tl from-secondary/25 to-transparent rounded-lg transform -rotate-6 translate-x-2 translate-y-2"></div>
+          <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-lg transform rotate-45 translate-x-1 translate-y-1"></div>
+        </div>
+        
+        <div className="absolute top-1/5 right-1/3 w-12 h-12 rotating-cube opacity-35" style={{ animationDelay: '7s' }}>
+          <div className="absolute inset-0 bg-gradient-to-br from-secondary/35 to-transparent rounded-md transform rotate-45"></div>
+          <div className="absolute inset-0 bg-gradient-to-tl from-primary/30 to-transparent rounded-md transform -rotate-12 translate-x-2 translate-y-2"></div>
+        </div>
+        
+        {/* Floating Particles */}
+        {Array.from({ length: 8 }).map((_, i) => (
+          <div
+            key={i}
+            className="absolute particle w-2 h-2 bg-primary/20 rounded-full"
+            style={{
+              left: `${20 + (i * 12)}%`,
+              top: `${30 + (i * 8)}%`,
+              animationDelay: `${i * 0.8}s`,
+              animationDuration: `${6 + (i * 0.5)}s`
+            }}
+          ></div>
+        ))}
+        
+        {/* Wave Motion Elements */}
+        <div className="absolute bottom-1/4 right-1/6 w-24 h-24 wave-motion opacity-25">
+          <div className="w-full h-full bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full blur-md"></div>
+        </div>
+        
+        <div className="absolute top-1/3 right-1/5 w-18 h-18 wave-motion opacity-30" style={{ animationDelay: '3s' }}>
+          <div className="w-full h-full bg-gradient-to-l from-secondary/25 to-primary/25 rounded-full blur-sm"></div>
+        </div>
+        
+        {/* Pulsing 3D Elements */}
+        <div className="absolute top-2/3 left-1/4 w-20 h-20 pulse-3d opacity-20">
+          <div className="w-full h-full bg-gradient-radial from-primary/30 via-secondary/20 to-transparent rounded-full"></div>
+        </div>
+        
+        {/* Animated Grid Background */}
+        <div className="absolute inset-0 opacity-[0.03]">
+          <div className="absolute inset-0 wave-motion" style={{
+            backgroundImage: `radial-gradient(circle at 50% 50%, hsl(var(--primary)) 1px, transparent 1px),
+                             radial-gradient(circle at 25% 75%, hsl(var(--secondary)) 1px, transparent 1px)`,
+            backgroundSize: '80px 80px, 120px 120px',
+            backgroundPosition: '0 0, 40px 40px'
+          }}></div>
+        </div>
+        
+        {/* Floating Geometric Shapes */}
+        <div className="absolute top-1/6 left-2/3 w-14 h-14 floating-3d opacity-25">
+          <div className="w-full h-full bg-gradient-to-br from-primary/40 to-secondary/30 transform rotate-45 rounded-lg blur-sm"></div>
+        </div>
+        
+        <div className="absolute bottom-1/5 left-1/3 w-10 h-10 floating-3d opacity-30" style={{ animationDelay: '2s' }}>
+          <div className="w-full h-full bg-gradient-to-tl from-secondary/45 to-primary/35 rounded-full blur-sm"></div>
+        </div>
+        
       </div>
     </section>
   );
