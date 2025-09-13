@@ -95,9 +95,30 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Floating Elements */}
-      <div className="absolute top-1/4 right-1/4 w-32 h-32 bg-primary/10 rounded-full blur-xl animate-float" />
-      <div className="absolute bottom-1/4 left-1/4 w-48 h-48 bg-secondary/10 rounded-full blur-xl animate-float" style={{ animationDelay: '1s' }} />
+      {/* 3D Floating Elements */}
+      <div className="absolute top-1/4 right-1/4 w-32 h-32 bg-primary/10 rounded-full blur-xl floating-3d" />
+      <div className="absolute bottom-1/4 left-1/4 w-48 h-48 bg-secondary/10 rounded-full blur-xl floating-3d" style={{ animationDelay: '2s' }} />
+      
+      {/* 3D Geometric Shapes */}
+      <div className="absolute top-1/3 left-1/6 w-16 h-16 cube-3d opacity-60">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-secondary/30 rounded-lg transform rotate-12"></div>
+        <div className="absolute inset-0 bg-gradient-to-tl from-secondary/25 to-primary/25 rounded-lg transform -rotate-6 translate-x-2 translate-y-2"></div>
+      </div>
+      
+      <div className="absolute bottom-1/3 right-1/6 w-20 h-20 cube-3d opacity-50" style={{ animationDelay: '1s' }}>
+        <div className="absolute inset-0 bg-gradient-to-br from-secondary/35 to-primary/35 rounded-xl transform rotate-45"></div>
+        <div className="absolute inset-0 bg-gradient-to-tl from-primary/30 to-secondary/30 rounded-xl transform -rotate-12 translate-x-3 translate-y-3"></div>
+      </div>
+      
+      {/* Animated Grid Background */}
+      <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px),
+                           linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
+          backgroundSize: '100px 100px',
+          animation: 'float 8s ease-in-out infinite'
+        }}></div>
+      </div>
     </section>
   );
 };
