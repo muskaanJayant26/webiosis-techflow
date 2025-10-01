@@ -54,27 +54,27 @@ const Blog = () => {
   const categories = ["All", "AI & Technology", "Frontend Development", "Backend Development", "Security", "Mobile Development"];
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8">
+    <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+        <div className="text-center mb-12 md:mb-16">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">
             Our <span className="gradient-primary bg-clip-text text-transparent">Blog</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
             Stay updated with the latest insights, trends, and best practices in software development 
             and technology from our expert team.
           </p>
         </div>
 
         {/* Categories Filter */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 mb-8 md:mb-12">
           {categories.map((category) => (
             <Button 
               key={category} 
               variant={category === "All" ? "default" : "outline"} 
               size="sm"
-              className="rounded-full"
+              className="rounded-full text-xs md:text-sm"
             >
               {category}
             </Button>
@@ -83,7 +83,7 @@ const Blog = () => {
 
         {/* Featured Post */}
         {posts.filter(post => post.featured).map((post) => (
-          <Card key={post.id} className="mb-12 overflow-hidden">
+          <Card key={post.id} className="mb-8 md:mb-12 overflow-hidden">
             <div className="grid md:grid-cols-2">
               <div className="relative">
                 <img 
@@ -125,7 +125,7 @@ const Blog = () => {
         ))}
 
         {/* Blog Posts Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
           {posts.filter(post => !post.featured).map((post) => (
             <Card key={post.id} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
               <div className="relative overflow-hidden rounded-t-lg">
@@ -168,9 +168,9 @@ const Blog = () => {
         </div>
 
         {/* Newsletter Signup */}
-        <div className="text-center bg-gradient-to-r from-primary/10 to-primary/5 rounded-2xl p-12">
-          <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+        <div className="text-center bg-gradient-to-r from-primary/10 to-primary/5 rounded-xl md:rounded-2xl p-6 md:p-12">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4">Stay Updated</h2>
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto px-4">
             Subscribe to our newsletter and never miss our latest insights, tutorials, and industry updates.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">

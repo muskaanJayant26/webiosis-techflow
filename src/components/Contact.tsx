@@ -50,23 +50,23 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-muted/30">
+    <section id="contact" className="py-16 md:py-24 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-fade-in-up">
+        <div className="text-center mb-12 md:mb-16 animate-fade-in-up">
           <Badge variant="secondary" className="mb-4">
             Get In Touch
           </Badge>
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
             Ready to Start Your
             <span className="gradient-primary bg-clip-text text-transparent"> Next Project?</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-3xl mx-auto px-4">
             Let's discuss how we can help you achieve your technology goals. 
             Schedule a free consultation with our experts today.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-6 md:gap-8">
           {/* Contact Information */}
           <div className="lg:col-span-1 space-y-6 animate-fade-in-up">
             <Card className="p-6 gradient-card border-0 shadow-glass">

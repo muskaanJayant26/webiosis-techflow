@@ -57,21 +57,21 @@ const Footer = () => {
     <footer className="bg-background border-t border-border">
       {/* Newsletter Section */}
       <div className="border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+          <div className="grid lg:grid-cols-2 gap-6 md:gap-8 items-center">
             <div>
-              <h3 className="text-2xl font-bold mb-2">Stay Updated</h3>
-              <p className="text-muted-foreground">
+              <h3 className="text-xl md:text-2xl font-bold mb-2">Stay Updated</h3>
+              <p className="text-sm md:text-base text-muted-foreground">
                 Get the latest insights on technology trends, best practices, and industry news 
                 delivered to your inbox.
               </p>
             </div>
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
               <Input 
                 placeholder="Enter your email address"
                 className="flex-1"
               />
-              <Button className="gradient-primary text-white font-semibold shadow-primary">
+              <Button className="gradient-primary text-white font-semibold shadow-primary whitespace-nowrap">
                 Subscribe
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
@@ -81,8 +81,8 @@ const Footer = () => {
       </div>
 
       {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid lg:grid-cols-5 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
             <h2 className="text-2xl font-bold gradient-primary bg-clip-text text-transparent mb-4">

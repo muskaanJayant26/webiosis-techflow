@@ -13,6 +13,23 @@ import {
 import servicesImage from "@/assets/services-grid.jpg";
 
 const Services = () => {
+  const additionalServices = [
+    {
+      icon: <Zap className="h-8 w-8" />,
+      title: "DevOps & CI/CD",
+      description: "Streamline development with automated pipelines, continuous integration, and deployment automation.",
+      technologies: ["Jenkins", "GitLab CI", "CircleCI", "ArgoCD"],
+      popular: false
+    },
+    {
+      icon: <Users className="h-8 w-8" />,
+      title: "Staff Augmentation",
+      description: "Extend your team with our pre-vetted software engineers to meet project demands and deadlines.",
+      technologies: ["Flexible Teams", "Quick Onboarding", "Timezone Match", "Agile"],
+      popular: true
+    }
+  ];
+
   const services = [
     {
       icon: <Code className="h-8 w-8" />,
@@ -58,29 +75,31 @@ const Services = () => {
     }
   ];
 
+  const allServices = [...services, ...additionalServices];
+
   return (
-    <section id="services" className="py-24 bg-muted/30">
+    <section id="services" className="py-16 md:py-24 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-fade-in-up">
+        <div className="text-center mb-12 md:mb-16 animate-fade-in-up">
           <Badge variant="secondary" className="mb-4">
             Our Expertise
           </Badge>
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 md:mb-6">
             From Concept to
             <span className="gradient-primary bg-clip-text text-transparent"> Completion</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto px-4">
             We offer end-to-end technology solutions powered by our elite team of engineers,
             delivering exceptional results across every phase of your project.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {services.map((service, index) => (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 mb-12 md:mb-16">
+          {allServices.map((service, index) => (
             <Card 
               key={service.title}
-              className="group hover:shadow-elegant transition-smooth border-border/50 hover:border-primary/20 relative overflow-hidden"
+              className="group hover:shadow-elegant transition-smooth border-border/50 hover:border-primary/20 relative overflow-hidden h-full flex flex-col"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {service.popular && (
@@ -92,21 +111,21 @@ const Services = () => {
                 </div>
               )}
               
-              <CardHeader className="pb-4">
+              <CardHeader className="pb-4 flex-grow">
                 <div className="flex items-center gap-4 mb-3">
-                  <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-smooth">
+                  <div className="p-2 md:p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-smooth">
                     {service.icon}
                   </div>
                 </div>
-                <CardTitle className="text-xl group-hover:text-primary transition-smooth">
+                <CardTitle className="text-lg md:text-xl group-hover:text-primary transition-smooth">
                   {service.title}
                 </CardTitle>
-                <CardDescription className="text-muted-foreground">
+                <CardDescription className="text-sm md:text-base text-muted-foreground">
                   {service.description}
                 </CardDescription>
               </CardHeader>
               
-              <CardContent>
+              <CardContent className="mt-auto">
                 <div className="flex flex-wrap gap-2">
                   {service.technologies.map((tech) => (
                     <Badge key={tech} variant="outline" className="text-xs">

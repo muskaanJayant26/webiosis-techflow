@@ -59,7 +59,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-24 relative overflow-hidden">
+    <section id="about" className="py-16 md:py-24 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img
@@ -70,22 +70,22 @@ const About = () => {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-fade-in-up">
+        <div className="text-center mb-12 md:mb-16 animate-fade-in-up">
           <Badge variant="secondary" className="mb-4">
             About TechFlow
           </Badge>
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
             Building the Future of
             <span className="gradient-primary bg-clip-text text-transparent"> Technology</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-3xl mx-auto px-4">
             For over a decade, we've been at the forefront of digital transformation, 
             helping companies worldwide harness the power of technology to achieve their goals.
           </p>
         </div>
 
         {/* Stats Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-12 md:mb-20">
           {stats.map((stat, index) => (
             <Card 
               key={stat.label}
@@ -105,10 +105,10 @@ const About = () => {
         </div>
 
         {/* Values Section */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center mb-12 md:mb-20">
           <div className="animate-fade-in-up">
-            <h3 className="text-3xl font-bold mb-6">Our Core Values</h3>
-            <p className="text-lg text-muted-foreground mb-8">
+            <h3 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Our Core Values</h3>
+            <p className="text-base md:text-lg text-muted-foreground mb-6 md:mb-8">
               These principles guide everything we do, from how we select our team 
               to how we approach every project and client relationship.
             </p>

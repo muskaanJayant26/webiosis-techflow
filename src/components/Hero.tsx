@@ -34,7 +34,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-900">
+    <section className="relative min-h-[100vh] min-h-[100dvh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-900">
       {/* Falling Tech Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {fallingTech.map((tech) => (
@@ -53,10 +53,10 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-32">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div className="text-center lg:text-left">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
               Accelerate Your
               <span className="block  ext-white">
                 Digital Future
@@ -64,26 +64,26 @@ const Hero = () => {
               With Elite Tech Talent
             </h1>
 
-            <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl">
+            <p className="mt-4 md:mt-6 text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto lg:mx-0">
               Access 5,000+ world-class software engineers and data scientists.
               Build faster, scale smarter, and innovate without limits.
             </p>
 
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+            <div className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start">
               <Button
                 size="lg"
-                className="gradient-primary text-white font-semibold shadow-primary hover:shadow-secondary transition-smooth group"
+                className="gradient-primary text-white font-semibold shadow-primary hover:shadow-secondary transition-smooth group w-full sm:w-auto"
               >
                 Start Your Project
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-smooth" />
+                <ArrowRight className="ml-2 h-4 md:h-5 w-4 md:w-5 group-hover:translate-x-1 transition-smooth" />
               </Button>
 
               <Button
                 variant="outline"
                 size="lg"
-                className="border-border hover:bg-accent transition-smooth group"
+                className="border-white/20 text-white hover:bg-white/10 transition-smooth group w-full sm:w-auto backdrop-blur-sm"
               >
-                <Play className="mr-2 h-5 w-5" />
+                <Play className="mr-2 h-4 md:h-5 w-4 md:w-5" />
                 Watch Demo
               </Button>
             </div>
@@ -92,7 +92,7 @@ const Hero = () => {
       </div>
 
       {/* Custom CSS Animations */}
-      <style jsx>{`
+      <style>{`
         @keyframes fallSparkle {
           0% {
             transform: translateY(-120%) rotate(0deg) scale(0.8);

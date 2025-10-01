@@ -68,24 +68,24 @@ const Projects = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-background via-background to-accent/5">
+    <section className="py-12 md:py-20 bg-gradient-to-br from-background via-background to-accent/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16 animate-fade-in">
+        <div className="text-center mb-12 md:mb-16 animate-fade-in">
           <Badge variant="outline" className="mb-4 text-primary border-primary/20">
             Our Portfolio
           </Badge>
-          <h2 className="text-4xl md:text-5xl font-bold gradient-primary bg-clip-text text-transparent mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold gradient-primary bg-clip-text text-transparent mb-4 md:mb-6">
             Transforming Ideas into Digital Reality
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-3xl mx-auto px-4">
             Explore our carefully crafted projects that showcase innovation, technical excellence, and 
             user-centric design across various industries and technologies.
           </p>
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {projects.map((project, index) => (
             <Card 
               key={project.id} 
@@ -96,9 +96,9 @@ const Projects = () => {
                 <img 
                   src={project.image} 
                   alt={project.title}
-                  className="w-full h-48 object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-40 sm:h-48 object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute top-4 right-4">
+                <div className="absolute top-3 right-3 md:top-4 md:right-4">
                   <Badge 
                     variant={project.status === "Live" ? "default" : "secondary"}
                     className={project.status === "Live" ? "bg-green-500 hover:bg-green-600" : ""}
@@ -178,13 +178,13 @@ const Projects = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="text-center mt-16 animate-fade-in">
-          <div className="bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 rounded-2xl p-8 border border-primary/20">
-            <h3 className="text-2xl font-bold mb-4">Ready to Start Your Project?</h3>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+        <div className="text-center mt-12 md:mt-16 animate-fade-in">
+          <div className="bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 rounded-xl md:rounded-2xl p-6 md:p-8 border border-primary/20">
+            <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">Ready to Start Your Project?</h3>
+            <p className="text-sm md:text-base text-muted-foreground mb-4 md:mb-6 max-w-2xl mx-auto px-4">
               Join hundreds of satisfied clients who have transformed their business with our innovative solutions.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
               <Button size="lg" className="gradient-primary text-white shadow-primary hover:shadow-lg transition-all">
                 Start Your Project
               </Button>
