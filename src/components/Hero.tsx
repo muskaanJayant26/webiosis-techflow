@@ -1,131 +1,85 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
-import heroImage from "@/assets/hero-image.jpg";
+import { useEffect, useState } from "react";
+
+const techNames = [
+  "React", "Next.js", "Java", "JavaScript", "CSS", "Python",
+  "Node.js", "AI/ML", "Docker", "Kubernetes", "MongoDB", "SQL",
+  "Tailwind", "TypeScript", "GraphQL", "AWS", "Azure", "Blockchain"
+];
 
 const Hero = () => {
+  const [fallingTech, setFallingTech] = useState<
+    { id: number; name: string; left: string; duration: string; delay: string }[]
+  >([]);
+
+  useEffect(() => {
+    let counter = 0;
+    const interval = setInterval(() => {
+      const randomTech = techNames[Math.floor(Math.random() * techNames.length)];
+      const newItem = {
+        id: counter++,
+        name: randomTech,
+        left: `${Math.random() * 100}%`, // random horizontal position
+        duration: `${5 + Math.random() * 5}s`, // different fall speed
+        delay: `0s`,
+      };
+      setFallingTech((prev) => [...prev, newItem]);
+
+      // Clean up old items after a while
+      setFallingTech((prev) => prev.filter((item) => counter - item.id < 20));
+    }, 700);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-900">
-      {/* Dark 3D Animated Background */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-black via-gray-900/95 to-black">
-        {/* Primary 3D Moving Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          
-          {/* Dark Floating Alphabet Letters */}
-          {['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'].map((letter, index) => (
-            <div
-              key={letter}
-              className="absolute floating-sphere opacity-20 text-white/30 font-bold text-4xl md:text-6xl select-none pointer-events-none"
-              style={{
-                left: `${(index * 3.8) % 100}%`,
-                top: `${(index * 4.2) % 100}%`,
-                animationDelay: `${index * 0.5}s`,
-                animationDuration: `${10 + (index * 0.3)}s`,
-                filter: 'blur(1px)'
-              }}
-            >
-              {letter}
-            </div>
-          ))}
-          
-          {/* Large Dark Orbital Spheres */}
-          <div className="absolute top-1/3 left-1/4 w-48 h-48 floating-sphere">
-            <div className="w-full h-full rounded-full bg-gradient-to-br from-purple-500/20 to-blue-500/15 blur-xl"></div>
-          </div>
-          
-          <div className="absolute bottom-1/4 right-1/3 w-56 h-56 floating-sphere" style={{ animationDelay: '5s', animationDuration: '15s' }}>
-            <div className="w-full h-full rounded-full bg-gradient-to-tl from-blue-500/25 to-purple-500/20 blur-2xl"></div>
-          </div>
-          
-          {/* Dark Dynamic 3D Cubes with Depth */}
-          <div className="absolute top-1/5 right-1/4 w-20 h-20 rotating-cube opacity-40">
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-400/30 to-transparent rounded-lg transform rotate-12 shadow-2xl shadow-purple-500/20"></div>
-            <div className="absolute inset-0 bg-gradient-to-tl from-blue-400/25 to-transparent rounded-lg transform -rotate-6 translate-x-3 translate-y-3"></div>
-            <div className="absolute inset-0 bg-gradient-to-tr from-purple-400/20 to-transparent rounded-lg transform rotate-45 translate-x-1 translate-y-1"></div>
-          </div>
-          
-          <div className="absolute bottom-1/3 left-1/5 w-16 h-16 rotating-cube opacity-35" style={{ animationDelay: '8s' }}>
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-400/35 to-transparent rounded-md transform rotate-45"></div>
-            <div className="absolute inset-0 bg-gradient-to-tl from-purple-400/30 to-transparent rounded-md transform -rotate-12 translate-x-2 translate-y-2"></div>
-          </div>
-          
-          {/* Dark Flowing Wave Elements */}
-          <div className="absolute top-1/2 left-1/6 w-32 h-32 wave-motion opacity-30">
-            <div className="w-full h-full bg-gradient-to-r from-purple-400/25 to-blue-400/25 rounded-full blur-lg"></div>
-          </div>
-          
-          <div className="absolute top-2/3 right-1/5 w-28 h-28 wave-motion opacity-35" style={{ animationDelay: '4s' }}>
-            <div className="w-full h-full bg-gradient-to-l from-blue-400/30 to-purple-400/30 rounded-full blur-md"></div>
-          </div>
-          
-          {/* Pulsing 3D Depth Elements */}
-          <div className="absolute top-1/4 left-1/3 w-24 h-24 pulse-3d opacity-15">
-            <div className="w-full h-full bg-gradient-radial from-primary/25 via-secondary/15 to-transparent rounded-full blur-sm"></div>
-          </div>
-          
-          {/* Interactive Particle Field */}
-          {Array.from({ length: 12 }).map((_, i) => (
-            <div
-              key={i}
-              className="absolute particle w-3 h-3 bg-primary/15 rounded-full blur-sm"
-              style={{
-                left: `${15 + (i * 7)}%`,
-                top: `${25 + (i * 6)}%`,
-                animationDelay: `${i * 1.2}s`,
-                animationDuration: `${8 + (i * 0.7)}s`
-              }}
-            ></div>
-          ))}
-          
-          {/* Geometric Floating Shapes */}
-          <div className="absolute top-1/6 right-1/3 w-18 h-18 floating-3d opacity-20">
-            <div className="w-full h-full bg-gradient-to-br from-primary/30 to-secondary/25 transform rotate-45 rounded-lg blur-sm"></div>
-          </div>
-          
-          <div className="absolute bottom-1/6 left-2/5 w-14 h-14 floating-3d opacity-25" style={{ animationDelay: '3s' }}>
-            <div className="w-full h-full bg-gradient-to-tl from-secondary/35 to-primary/30 rounded-full blur-sm"></div>
-          </div>
-          
-          {/* Subtle Grid Pattern */}
-          <div className="absolute inset-0 opacity-[0.02]">
-            <div className="absolute inset-0 wave-motion" style={{
-              backgroundImage: `radial-gradient(circle at 50% 50%, hsl(var(--primary)) 1px, transparent 1px),
-                               radial-gradient(circle at 25% 75%, hsl(var(--secondary)) 1px, transparent 1px)`,
-              backgroundSize: '100px 100px, 150px 150px',
-              backgroundPosition: '0 0, 50px 50px'
-            }}></div>
-          </div>
-          
-        </div>
+      {/* Falling Tech Background */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {fallingTech.map((tech) => (
+          <span
+            key={tech.id}
+            className="absolute text-white/70 font-bold text-lg md:text-2xl animate-fall-sparkle select-none"
+            style={{
+              left: tech.left,
+              animationDuration: tech.duration,
+              animationDelay: tech.delay,
+            }}
+          >
+            {tech.name}
+          </span>
+        ))}
       </div>
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="animate-fade-in-up">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+          <div>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white">
               Accelerate Your
-              <span className="block gradient-primary bg-clip-text text-transparent">
+              <span className="block  ext-white">
                 Digital Future
               </span>
               With Elite Tech Talent
             </h1>
-            
+
             <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl">
-              Access 5,000+ world-class software engineers and data scientists. 
+              Access 5,000+ world-class software engineers and data scientists.
               Build faster, scale smarter, and innovate without limits.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="gradient-primary text-white font-semibold shadow-primary hover:shadow-secondary transition-smooth group"
               >
                 Start Your Project
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-smooth" />
               </Button>
-              
-              <Button 
-                variant="outline" 
+
+              <Button
+                variant="outline"
                 size="lg"
                 className="border-border hover:bg-accent transition-smooth group"
               >
@@ -133,123 +87,40 @@ const Hero = () => {
                 Watch Demo
               </Button>
             </div>
-
-            <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-primary">5,000+</div>
-                <div className="text-sm text-muted-foreground">Expert Developers</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-primary">98%</div>
-                <div className="text-sm text-muted-foreground">Client Satisfaction</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-primary">40+</div>
-                <div className="text-sm text-muted-foreground">Countries Served</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-primary">24/7</div>
-                <div className="text-sm text-muted-foreground">Support Available</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="lg:block hidden animate-scale-in">
-            <div className="relative">
-              <div className="absolute inset-0 gradient-primary rounded-3xl blur-3xl opacity-20 animate-pulse-glow" />
-              <div className="relative glassmorphism rounded-3xl p-8 shadow-glass">
-                <h3 className="text-xl font-semibold mb-4">Technologies We Master</h3>
-                <div className="grid grid-cols-3 gap-4">
-                  {[
-                    "React", "Node.js", "Python", "AI/ML", "Cloud", "Mobile",
-                    "DevOps", "Blockchain", "IoT"
-                  ].map((tech) => (
-                    <div
-                      key={tech}
-                      className="bg-accent/50 rounded-lg px-3 py-2 text-sm font-medium text-center hover:bg-accent transition-smooth"
-                    >
-                      {tech}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
 
-      {/* Advanced 3D Background Animation System */}
-      <div className="absolute inset-0 particle-system overflow-hidden pointer-events-none">
-        
-        {/* Large Floating Spheres */}
-        <div className="absolute top-1/4 right-1/4 w-40 h-40 floating-sphere">
-          <div className="w-full h-full rounded-full bg-gradient-to-br from-primary/15 to-secondary/15 blur-lg"></div>
-        </div>
-        
-        <div className="absolute bottom-1/3 left-1/5 w-32 h-32 floating-sphere" style={{ animationDelay: '4s' }}>
-          <div className="w-full h-full rounded-full bg-gradient-to-br from-secondary/12 to-primary/12 blur-lg"></div>
-        </div>
-        
-        {/* Rotating 3D Cubes */}
-        <div className="absolute top-1/2 left-1/6 w-16 h-16 rotating-cube opacity-40">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-transparent rounded-lg transform rotate-12"></div>
-          <div className="absolute inset-0 bg-gradient-to-tl from-secondary/25 to-transparent rounded-lg transform -rotate-6 translate-x-2 translate-y-2"></div>
-          <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-lg transform rotate-45 translate-x-1 translate-y-1"></div>
-        </div>
-        
-        <div className="absolute top-1/5 right-1/3 w-12 h-12 rotating-cube opacity-35" style={{ animationDelay: '7s' }}>
-          <div className="absolute inset-0 bg-gradient-to-br from-secondary/35 to-transparent rounded-md transform rotate-45"></div>
-          <div className="absolute inset-0 bg-gradient-to-tl from-primary/30 to-transparent rounded-md transform -rotate-12 translate-x-2 translate-y-2"></div>
-        </div>
-        
-        {/* Floating Particles */}
-        {Array.from({ length: 8 }).map((_, i) => (
-          <div
-            key={i}
-            className="absolute particle w-2 h-2 bg-primary/20 rounded-full"
-            style={{
-              left: `${20 + (i * 12)}%`,
-              top: `${30 + (i * 8)}%`,
-              animationDelay: `${i * 0.8}s`,
-              animationDuration: `${6 + (i * 0.5)}s`
-            }}
-          ></div>
-        ))}
-        
-        {/* Wave Motion Elements */}
-        <div className="absolute bottom-1/4 right-1/6 w-24 h-24 wave-motion opacity-25">
-          <div className="w-full h-full bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full blur-md"></div>
-        </div>
-        
-        <div className="absolute top-1/3 right-1/5 w-18 h-18 wave-motion opacity-30" style={{ animationDelay: '3s' }}>
-          <div className="w-full h-full bg-gradient-to-l from-secondary/25 to-primary/25 rounded-full blur-sm"></div>
-        </div>
-        
-        {/* Pulsing 3D Elements */}
-        <div className="absolute top-2/3 left-1/4 w-20 h-20 pulse-3d opacity-20">
-          <div className="w-full h-full bg-gradient-radial from-primary/30 via-secondary/20 to-transparent rounded-full"></div>
-        </div>
-        
-        {/* Animated Grid Background */}
-        <div className="absolute inset-0 opacity-[0.03]">
-          <div className="absolute inset-0 wave-motion" style={{
-            backgroundImage: `radial-gradient(circle at 50% 50%, hsl(var(--primary)) 1px, transparent 1px),
-                             radial-gradient(circle at 25% 75%, hsl(var(--secondary)) 1px, transparent 1px)`,
-            backgroundSize: '80px 80px, 120px 120px',
-            backgroundPosition: '0 0, 40px 40px'
-          }}></div>
-        </div>
-        
-        {/* Floating Geometric Shapes */}
-        <div className="absolute top-1/6 left-2/3 w-14 h-14 floating-3d opacity-25">
-          <div className="w-full h-full bg-gradient-to-br from-primary/40 to-secondary/30 transform rotate-45 rounded-lg blur-sm"></div>
-        </div>
-        
-        <div className="absolute bottom-1/5 left-1/3 w-10 h-10 floating-3d opacity-30" style={{ animationDelay: '2s' }}>
-          <div className="w-full h-full bg-gradient-to-tl from-secondary/45 to-primary/35 rounded-full blur-sm"></div>
-        </div>
-        
-      </div>
+      {/* Custom CSS Animations */}
+      <style jsx>{`
+        @keyframes fallSparkle {
+          0% {
+            transform: translateY(-120%) rotate(0deg) scale(0.8);
+            opacity: 0;
+          }
+          10% {
+            opacity: 1;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+                         0 0 20px rgba(0, 255, 255, 0.6),
+                         0 0 40px rgba(0, 200, 255, 0.5);
+          }
+          90% {
+            opacity: 1;
+          }
+          100% {
+            transform: translateY(110vh) rotate(360deg) scale(1.1);
+            opacity: 0;
+          }
+        }
+
+        .animate-fall-sparkle {
+          position: absolute;
+          top: -50px;
+          animation-name: fallSparkle;
+          animation-timing-function: linear;
+          animation-iteration-count: 1;
+        }
+      `}</style>
     </section>
   );
 };
