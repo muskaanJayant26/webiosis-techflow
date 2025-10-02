@@ -119,6 +119,24 @@ const { theme, toggleTheme } = useTheme();
                   {item.name}
                 </a>
               ))}
+               <div className="mt-4 flex justify-center">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={toggleTheme}
+                  className="text-foreground w-full"
+                >
+                  {theme === "light" ? (
+                    <>
+                      <Moon className="h-5 w-5 mr-2" /> Dark Mode
+                    </>
+                  ) : (
+                    <>
+                      <Sun className="h-5 w-5 mr-2" /> Light Mode
+                    </>
+                  )}
+                </Button>
+              </div>
               <div className="mt-4">
                 <Button variant="default" className="w-full gradient-primary text-white font-semibold">
                   Get Started
@@ -131,5 +149,6 @@ const { theme, toggleTheme } = useTheme();
     </nav>
   );
 };
+
 
 export default Navigation;
