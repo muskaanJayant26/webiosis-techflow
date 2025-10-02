@@ -29,15 +29,16 @@ const Hero = () => {
           const tech = techNames[i % techNames.length];
           const neonColor = Math.random() > 0.5 ? "text-cyan-400" : "text-pink-400";
 
-          // Generate safe random positions (avoiding content zone)
+          // Safe margins to prevent cutoff
+          const margin = 8; // % safe padding from edges
           let top, left;
           let tries = 0;
           do {
-            top = Math.random() * 100;   // %
-            left = Math.random() * 100;  // %
+            top = margin + Math.random() * (100 - margin * 2);
+            left = margin + Math.random() * (100 - margin * 2);
             tries++;
           } while (
-            // exclude central content area (responsive safe zone)
+            // exclude central content area
             top > 25 && top < 75 && left > 15 && left < 85 && tries < 10
           );
 
@@ -45,7 +46,7 @@ const Hero = () => {
             <span
               key={i}
               onClick={() => handleBounce(i)}
-              className={`absolute ${neonColor} font-semibold text-sm md:text-lg cursor-pointer opacity-0 pointer-events-auto drop-shadow-[0_0_10px] 
+              className={`absolute ${neonColor} font-semibold text-xs sm:text-sm md:text-lg cursor-pointer opacity-0 pointer-events-auto drop-shadow-[0_0_10px] 
                 animate-float ${bouncing[i] ? "animate-bounce" : ""}`}
               style={{
                 top: `${top}%`,
