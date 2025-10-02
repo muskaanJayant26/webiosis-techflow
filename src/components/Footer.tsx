@@ -55,37 +55,12 @@ const Footer = () => {
 
   return (
     <footer className="bg-background border-t border-border">
-      {/* Newsletter Section */}
-      {/* <div className="border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-          <div className="grid lg:grid-cols-2 gap-6 md:gap-8 items-center">
-            <div>
-              <h3 className="text-xl md:text-2xl font-bold mb-2">Stay Updated</h3>
-              <p className="text-sm md:text-base text-muted-foreground">
-                Get the latest insights on technology trends, best practices, and industry news 
-                delivered to your inbox.
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
-              <Input 
-                placeholder="Enter your email address"
-                className="flex-1"
-              />
-              <Button className="gradient-primary text-white font-semibold shadow-primary whitespace-nowrap">
-                Subscribe
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-6 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-10">
           {/* Company Info */}
-          <div className="lg:col-span-2 mr-10">
-            <h2 className="text-2xl font-bold text-white gradient-primary  mb-4 w-[140px] px-4 py-2 rounded">
+          <div className="lg:col-span-2">
+            <h2 className="text-2xl font-bold text-white gradient-primary mb-4 w-fit px-4 py-2 rounded">
               Webiosis
             </h2>
             <p className="text-muted-foreground mb-6 max-w-md">
@@ -108,13 +83,13 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="flex ml-10">
+            <div className="flex gap-3">
               {socialLinks.map((social) => (
                 <Button
                   key={social.label}
                   variant="outline"
                   size="sm"
-                  className="hover:bg-primary hover:text-white transition-smooth"
+                  className="hover:bg-primary hover:text-white transition-smooth rounded-full"
                   aria-label={social.label}
                 >
                   {social.icon}
@@ -149,10 +124,10 @@ const Footer = () => {
       {/* Bottom Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-sm text-muted-foreground">
+          <div className="text-sm text-muted-foreground text-center md:text-left">
             © 2025 Webiosis. All rights reserved.
           </div>
-          <div className="flex items-center gap-6 text-sm text-muted-foreground">
+          <div className="flex flex-wrap justify-center md:justify-end gap-6 text-sm text-muted-foreground">
             <a href="#" className="hover:text-primary transition-smooth">Privacy</a>
             <a href="#" className="hover:text-primary transition-smooth">Terms</a>
             <a href="#" className="hover:text-primary transition-smooth">Cookies</a>
