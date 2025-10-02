@@ -9,8 +9,8 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Navigation />
-      {/* <Hero /> */}
-      <HeroTwo />
+      <Hero /> 
+      {/* <HeroTwo /> */}
       <Services />
       <Projects />
       <Footer />
@@ -19,3 +19,4 @@ const Index = () => {
 };
 
 export default Index;
+
