@@ -2,13 +2,14 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-
+import { Sun, Moon } from "lucide-react";
+import { useTheme } from "@/context/ThemeContext"; 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
+const { theme, toggleTheme } = useTheme(); 
   const navItems = [
-    { name: "Solutions", href: "/solutions", hasDropdown: true },
+    { name: "Solutions", href: "/solutions", hasDropdown: false },
     { name: "Technologies", href: "/technologies", hasDropdown: false },
     { name: "Industries", href: "/industries", hasDropdown: false },
     { name: "About", href: "/about", hasDropdown: false },
@@ -16,52 +17,22 @@ const Navigation = () => {
     { name: "Blog", href: "/blog", hasDropdown: false },
   ];
 
-  const solutionsDropdown = {
-    leftColumn: {
-      title: "Solutions",
-      subtitle: "Get software development services, built around your needs:",
-      items: ["Staff Augmentation", "Dedicated Teams", "Software Outsourcing"]
-    },
-    middleColumn: {
-      title: "TOP SOLUTIONS",
-      items: [
-        "AI Development",
-        "Back-end Development", 
-        "CMS Development",
-        "Cryptocurrency & Blockchain",
-        "Front-end Development",
-        "Machine Learning",
-        "QA Testing & Automation",
-        "UX/UI Design"
-      ]
-    },
-    rightColumn: {
-      title: "ENTERPRISE FOCUSED",
-      items: [
-        "Android App Development",
-        "Business Intelligence", 
-        "Data Engineering",
-        "eCommerce Development",
-        "iOS App Development",
-        "Mobile App Development",
-        "SaaS Development",
-        "Web Development"
-      ]
-    }
-  };
+
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-border bg-white/95">
+<nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-border bg-white/95 dark:bg-gray-800">
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="/">
-              <h1 className="text-xl md:text-2xl font-bold gradient-primary bg-clip-text text-transparent cursor-pointer">
-                TechFlow
+              <h1 className="text-xl text-white px-4 py-2 md:text-2xl rounded font-bold gradient-primary cursor-pointer">
+                Webiosis
               </h1>
             </a>
           </div>
+        
 
           {/* Desktop Navigation */}
           <div className="hidden md:block relative">
@@ -85,8 +56,8 @@ const Navigation = () => {
                     <a
                       href={item.href}
                       className={cn(
-                        "flex items-center gap-1 px-3 py-2 rounded-md text-sm font-medium",
-                        "text-foreground hover:text-primary transition-smooth",
+                        "flex items-center gap-1 px-3 py-2 rounded-md text-sm font-medium ",
+                        "text-foreground  transition-smooth",
                         "hover:bg-accent"
                       )}
                     >
@@ -98,68 +69,18 @@ const Navigation = () => {
             </div>
 
             {/* Solutions Dropdown */}
-            {dropdownOpen && (
-              <div 
-                className="absolute top-full left-0 w-screen bg-background border border-border shadow-lg z-50"
-                onMouseEnter={() => setDropdownOpen(true)}
-                onMouseLeave={() => setDropdownOpen(false)}
-              >
-                <div className="max-w-7xl mx-auto px-8 py-8">
-                  <div className="grid grid-cols-3 gap-8">
-                    {/* Left Column */}
-                    <div>
-                      <h3 className="text-lg font-semibold text-foreground mb-2">
-                        {solutionsDropdown.leftColumn.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground mb-4">
-                        {solutionsDropdown.leftColumn.subtitle}
-                      </p>
-                      <ul className="space-y-2">
-                        {solutionsDropdown.leftColumn.items.map((item) => (
-                          <li key={item}>
-                            <a href="#" className="text-sm text-foreground hover:text-primary transition-smooth">
-                              {item}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Middle Column */}
-                    <div>
-                      <h4 className="text-sm font-semibold text-primary mb-4 uppercase tracking-wide">
-                        {solutionsDropdown.middleColumn.title}
-                      </h4>
-                      <ul className="space-y-2">
-                        {solutionsDropdown.middleColumn.items.map((item) => (
-                          <li key={item}>
-                            <a href="#" className="text-sm text-foreground hover:text-primary transition-smooth">
-                              {item}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Right Column */}
-                    <div>
-                      <h4 className="text-sm font-semibold text-primary mb-4 uppercase tracking-wide">
-                        {solutionsDropdown.rightColumn.title}
-                      </h4>
-                      <ul className="space-y-2">
-                        {solutionsDropdown.rightColumn.items.map((item) => (
-                          <li key={item}>
-                            <a href="#" className="text-sm text-foreground hover:text-primary transition-smooth">
-                              {item}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
+          
+          </div>
+            <div className="hidden md:flex items-center gap-4">
+            {/* Theme Toggle Button */}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleTheme}
+              className="text-foreground "
+            >
+              {theme === "light" ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
+            </Button>
           </div>
 
           {/* CTA Button */}

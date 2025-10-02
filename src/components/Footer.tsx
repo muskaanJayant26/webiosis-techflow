@@ -56,7 +56,7 @@ const Footer = () => {
   return (
     <footer className="bg-background border-t border-border">
       {/* Newsletter Section */}
-      <div className="border-b border-border">
+      {/* <div className="border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
           <div className="grid lg:grid-cols-2 gap-6 md:gap-8 items-center">
             <div>
@@ -78,15 +78,15 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-6 ">
           {/* Company Info */}
-          <div className="lg:col-span-2">
-            <h2 className="text-2xl font-bold gradient-primary bg-clip-text text-transparent mb-4">
-              TechFlow
+          <div className="lg:col-span-2 mr-10">
+            <h2 className="text-2xl font-bold text-white gradient-primary  mb-4 w-[140px] px-4 py-2 rounded">
+              Webiosis
             </h2>
             <p className="text-muted-foreground mb-6 max-w-md">
               Accelerating digital transformation with world-class software engineering talent. 
@@ -96,7 +96,7 @@ const Footer = () => {
             <div className="space-y-3 mb-6">
               <div className="flex items-center gap-3 text-sm">
                 <Mail className="h-4 w-4 text-primary" />
-                <span>hello@techflow.com</span>
+                <span>hello@webiosis.com</span>
               </div>
               <div className="flex items-center gap-3 text-sm">
                 <Phone className="h-4 w-4 text-primary" />
@@ -108,7 +108,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="flex gap-3">
+            <div className="flex ml-10">
               {socialLinks.map((social) => (
                 <Button
                   key={social.label}
@@ -150,7 +150,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-sm text-muted-foreground">
-            © 2024 TechFlow. All rights reserved.
+            © 2025 Webiosis. All rights reserved.
           </div>
           <div className="flex items-center gap-6 text-sm text-muted-foreground">
             <a href="#" className="hover:text-primary transition-smooth">Privacy</a>

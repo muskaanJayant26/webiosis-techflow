@@ -1,49 +1,85 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github, Star, Users, Calendar } from "lucide-react";
-
+import { ExternalLink, Github, Star, Users, Calendar, Building2, DollarSign, Trophy } from "lucide-react";
+import { useState } from "react";
+import StartProject from "./StartProject";
 const OurWork = () => {
   const projects = [
     {
       id: 1,
       title: "E-commerce Platform Redesign",
       description: "Complete redesign and development of a modern e-commerce platform with improved user experience and performance.",
-      image: "/lovable-uploads/23406833-acac-4fe5-a7ce-9bbf22854357.png",
+      image: "/work/ecoom.png",
       tags: ["React", "Node.js", "MongoDB", "Stripe"],
       stats: { users: "50K+", rating: 4.8, duration: "6 months" },
       type: "Web Development",
-      status: "Completed"
+      status: "Completed",
+      client: "FashionHub Inc.",
+      budget: "$120,000",
+      impact: "Boosted sales by 40% in the first quarter after launch"
     },
     {
       id: 2,
       title: "AI-Powered Analytics Dashboard",
       description: "Advanced analytics dashboard with machine learning capabilities for real-time business insights.",
-      image: "/lovable-uploads/23406833-acac-4fe5-a7ce-9bbf22854357.png",
+      image: "/work/ai.png",
       tags: ["Python", "TensorFlow", "React", "PostgreSQL"],
       stats: { users: "10K+", rating: 4.9, duration: "8 months" },
       type: "AI Development",
-      status: "Completed"
+      status: "Completed",
+      client: "DataVision Corp.",
+      budget: "$200,000",
+      impact: "Reduced reporting time by 70% with predictive insights"
     },
     {
       id: 3,
       title: "Mobile Banking Application",
       description: "Secure mobile banking app with biometric authentication and real-time transaction processing.",
-      image: "/lovable-uploads/23406833-acac-4fe5-a7ce-9bbf22854357.png",
+      image: "/work/bank.png",
       tags: ["React Native", "Node.js", "AWS", "Blockchain"],
       stats: { users: "100K+", rating: 4.7, duration: "12 months" },
       type: "Mobile Development",
-      status: "Ongoing"
+      status: "Ongoing",
+      client: "FinTrust Bank",
+      budget: "$300,000",
+      impact: "Increased customer adoption rate by 60%"
+    },
+    {
+      id: 4,
+      title: "Healthcare Patient Portal",
+      description: "A HIPAA-compliant portal for patients to book appointments, access reports, and consult doctors virtually.",
+      image: "/work/health.png",
+      tags: ["Angular", "Firebase", "Node.js"],
+      stats: { users: "20K+", rating: 4.6, duration: "9 months" },
+      type: "Healthcare Software",
+      status: "Completed",
+      client: "MediCare Systems",
+      budget: "$150,000",
+      impact: "Improved patient engagement by 50%"
+    },
+    {
+      id: 5,
+      title: "EdTech Learning Platform",
+      description: "Interactive learning management system with video lessons, gamification, and AI-based recommendations.",
+      image: "/work/edtech.png",
+      tags: ["Next.js", "GraphQL", "AWS", "Redis"],
+      stats: { users: "200K+", rating: 4.9, duration: "10 months" },
+      type: "EdTech Development",
+      status: "Ongoing",
+      client: "EduWorld",
+      budget: "$500,000",
+      impact: "Tripled active learners and reduced dropout rates by 35%"
     }
   ];
-
+const [isOpen, setIsOpen] = useState(false);
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8">
+    <section className="py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Our <span className="gradient-primary bg-clip-text text-transparent">Work</span>
+          <h1 className="text-xl md:text-3xl font-bold mb-6">
+            <span className="dark:gradient-primary bg-[linear-gradient(135deg,hsl(var(--primary-light)),hsl(var(--secondary-light)))] px-4 py-2 rounded">Our Work</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Discover our portfolio of successful projects that have transformed businesses 
@@ -83,6 +119,7 @@ const OurWork = () => {
                 <CardDescription>{project.description}</CardDescription>
               </CardHeader>
               <CardContent>
+                {/* Quick Stats */}
                 <div className="grid grid-cols-3 gap-4 mb-4 text-sm">
                   <div className="flex items-center gap-1">
                     <Users className="h-4 w-4 text-muted-foreground" />
@@ -97,6 +134,24 @@ const OurWork = () => {
                     <span>{project.stats.duration}</span>
                   </div>
                 </div>
+
+                {/* Extra Info */}
+                <div className="grid gap-2 text-sm text-muted-foreground mb-4">
+                  <div className="flex items-center gap-2">
+                    <Building2 className="h-4 w-4" />
+                    <span>{project.client}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <DollarSign className="h-4 w-4" />
+                    <span>{project.budget}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Trophy className="h-4 w-4 text-green-500" />
+                    <span>{project.impact}</span>
+                  </div>
+                </div>
+
+                {/* Tech Tags */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
                     <Badge key={tag} variant="secondary" className="text-xs">
@@ -120,7 +175,7 @@ const OurWork = () => {
             and innovative solutions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="gradient-primary text-white">
+            <Button size="lg" className="gradient-primary text-white"  onClick={() => setIsOpen(true)}>
               Start Your Project
             </Button>
             <Button size="lg" variant="outline">
@@ -129,6 +184,7 @@ const OurWork = () => {
           </div>
         </div>
       </div>
+      <StartProject isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </section>
   );
 };

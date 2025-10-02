@@ -21,7 +21,8 @@ import {
   Home,
   Shield
 } from "lucide-react";
-
+import IndustryDiscussionModal from "./DiscussIndustry";
+import { useState } from "react";
 const Industries = () => {
   const industries = [
     {
@@ -250,17 +251,18 @@ const Industries = () => {
       description: "Average time to achieve positive ROI"
     }
   ];
-
+const [isOpen, setIsOpen] = useState(false);
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8">
+    <section className="py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
           <Badge variant="secondary" className="mb-4">
             Industry Expertise
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Industries We <span className="gradient-primary bg-clip-text text-transparent">Transform</span>
+          <h1 className="text-3xl md:text-3xl font-bold mb-6">
+           <span className="dark:gradient-primary bg-[linear-gradient(135deg,hsl(var(--primary-light)),hsl(var(--secondary-light)))] px-2 py-1 rounded">
+            Industries We Transform</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Deep domain expertise across multiple industries, delivering specialized solutions 
@@ -337,7 +339,7 @@ const Industries = () => {
         {/* Industry Trends */}
         <div className="mb-20">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-3xl font-bold mb-4">
               Industry Innovation Trends
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -367,7 +369,7 @@ const Industries = () => {
         {/* Digital Transformation Section */}
         <div className="mb-20">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-3xl font-bold mb-4">
               Digital Transformation Across Industries
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -405,7 +407,7 @@ const Industries = () => {
         {/* Success Metrics */}
         <div className="mb-20">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-3xl font-bold mb-4">
               Measurable Success Across Industries
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -455,7 +457,7 @@ const Industries = () => {
             <Badge variant="secondary" className="mb-4">
               Industry Insights
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-3xl font-bold mb-4">
               Stay Ahead with Industry-Specific Intelligence
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -505,13 +507,13 @@ const Industries = () => {
             <Building2 className="h-5 w-5 text-primary" />
             <span className="text-sm text-muted-foreground">Trusted by industry leaders worldwide</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Don't See Your Industry?</h2>
+          <h2 className="text-3xl md:text-3xl font-bold mb-4">Don't See Your Industry?</h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             We work across many industries and adapt our expertise to meet your specific needs. 
             Let's discuss how we can help transform your business with industry-focused technology solutions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="gradient-primary text-white">
+            <Button size="lg" className="gradient-primary text-white" onClick={() => setIsOpen(true)}>
               <Users className="mr-2 h-5 w-5" />
               Discuss Your Industry
             </Button>
@@ -521,6 +523,7 @@ const Industries = () => {
           </div>
         </div>
       </div>
+      <IndustryDiscussionModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </section>
   );
 };

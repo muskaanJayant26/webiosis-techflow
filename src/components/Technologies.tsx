@@ -19,7 +19,8 @@ import {
   Target,
   BarChart3
 } from "lucide-react";
-import techBg from "@/assets/tech-bg.jpg";
+import { useState } from "react";
+import DiscussProject from "./DiscussProject";
 
 const Technologies = () => {
   const techStacks = [
@@ -222,17 +223,10 @@ const Technologies = () => {
       default: return "bg-gray-100 text-gray-800 border-gray-200";
     }
   };
-
+const [isOpen, setIsOpen] = useState(false);
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 relative">
-      {/* Background */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src={techBg}
-          alt="Technology background"
-          className="w-full h-full object-cover opacity-5"
-        />
-      </div>
+    <section className="py-10 px-4 sm:px-6 lg:px-8 relative">
+   
 
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}
@@ -240,8 +234,9 @@ const Technologies = () => {
           <Badge variant="secondary" className="mb-4">
             Technology Stack
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Cutting-Edge <span className="gradient-primary bg-clip-text text-transparent">Technologies</span>
+          <h1 className="text-3xl md:text-3xl font-bold mb-6">
+           <span className="bg-[linear-gradient(135deg,hsl(var(--primary-light)),hsl(var(--secondary-light)))] dark:gradient-primary px-2 py-1 rounded">
+            Cutting-Edge Technologies</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             We leverage the latest and most reliable technologies to build robust, 
@@ -311,7 +306,7 @@ const Technologies = () => {
         {/* Tech Trends Section */}
         <div className="mb-20">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-3xl font-bold mb-4">
               Technology Trends We're Leading
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -346,7 +341,7 @@ const Technologies = () => {
         {/* Migration Services */}
         <div className="mb-20">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-3xl font-bold mb-4">
               Migration & Modernization Services
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -443,13 +438,13 @@ const Technologies = () => {
             <Star className="h-5 w-5 text-primary" />
             <span className="text-sm text-muted-foreground">Industry-leading technology partnerships</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Need a Custom Technology Solution?</h2>
+          <h2 className="text-3xl md:text-3xl font-bold mb-4">Need a Custom Technology Solution?</h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Our experts are ready to help you choose the right technology stack for your project 
             and deliver exceptional results that drive business growth and innovation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="gradient-primary text-white">
+            <Button size="lg" className="gradient-primary text-white" onClick={() => setIsOpen(true)}>
               <Zap className="mr-2 h-5 w-5" />
               Discuss Your Project
             </Button>
@@ -459,6 +454,7 @@ const Technologies = () => {
           </div>
         </div>
       </div>
+      <DiscussProject  isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </section>
   );
 };

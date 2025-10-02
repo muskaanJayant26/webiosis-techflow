@@ -11,7 +11,8 @@ import {
   Heart
 } from "lucide-react";
 import techBg from "@/assets/tech-bg.jpg";
-
+import { useState } from "react";
+import StartProject from "./StartProject";
 const About = () => {
   const stats = [
     { 
@@ -57,26 +58,18 @@ const About = () => {
       description: "We stay ahead of the curve, leveraging cutting-edge technologies to solve tomorrow's challenges today."
     }
   ];
-
+const [isOpen, setIsOpen] = useState(false);
   return (
-    <section id="about" className="py-16 md:py-24 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src={techBg}
-          alt="Technology background"
-          className="w-full h-full object-cover opacity-5"
-        />
-      </div>
+    <section id="about" className="py-10 md:py-10 relative overflow-hidden">
+   
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16 animate-fade-in-up">
           <Badge variant="secondary" className="mb-4">
-            About TechFlow
+            About Webiosis
           </Badge>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
-            Building the Future of
-            <span className="gradient-primary bg-clip-text text-transparent"> Technology</span>
+          <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-3xl font-bold mb-4 md:mb-6">
+            <span className="dark:gradient-primary bg-[linear-gradient(135deg,hsl(var(--primary-light)),hsl(var(--secondary-light)))] px-2 py-1 rounded"> Building the Future of Technology</span>
           </h2>
           <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-3xl mx-auto px-4">
             For over a decade, we've been at the forefront of digital transformation, 
@@ -107,7 +100,7 @@ const About = () => {
         {/* Values Section */}
         <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center mb-12 md:mb-20">
           <div className="animate-fade-in-up">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Our Core Values</h3>
+            <h3 className="text-3xl md:text-3xl font-bold mb-4 md:mb-6">Our Core Values</h3>
             <p className="text-base md:text-lg text-muted-foreground mb-6 md:mb-8">
               These principles guide everything we do, from how we select our team 
               to how we approach every project and client relationship.
@@ -134,7 +127,7 @@ const About = () => {
 
           <div className="animate-scale-in">
             <Card className="p-8 gradient-card border-0 shadow-glass">
-              <h4 className="text-2xl font-bold mb-4">Why Choose TechFlow?</h4>
+              <h4 className="text-2xl font-bold mb-4">Why Choose Webiosis?</h4>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 rounded-full bg-primary" />
@@ -173,14 +166,15 @@ const About = () => {
             Ready to work with world-class talent?
           </h3>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Join hundreds of companies that trust TechFlow to accelerate their digital transformation 
+            Join hundreds of companies that trust Webiosis to accelerate their digital transformation 
             and deliver exceptional results.
           </p>
-          <Button size="lg" className="gradient-primary text-white font-semibold shadow-primary">
+          <Button size="lg" className="gradient-primary text-white font-semibold shadow-primary"  onClick={() => setIsOpen(true)}>
             Start Your Project Today
           </Button>
         </div>
       </div>
+      <StartProject isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </section>
   );
 };

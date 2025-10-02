@@ -13,7 +13,7 @@ const Blog = () => {
       date: "2024-01-15",
       readTime: "5 min read",
       category: "AI & Technology",
-      image: "/lovable-uploads/23406833-acac-4fe5-a7ce-9bbf22854357.png",
+      image: "/work/aiFut.png",
       featured: true
     },
     {
@@ -24,7 +24,7 @@ const Blog = () => {
       date: "2024-01-10",
       readTime: "8 min read",
       category: "Frontend Development",
-      image: "/lovable-uploads/23406833-acac-4fe5-a7ce-9bbf22854357.png",
+      image: "/work/react.png",
       featured: false
     },
     {
@@ -35,7 +35,7 @@ const Blog = () => {
       date: "2024-01-05",
       readTime: "12 min read",
       category: "Backend Development",
-      image: "/lovable-uploads/23406833-acac-4fe5-a7ce-9bbf22854357.png",
+      image: "/work/node.png",
       featured: false
     },
     {
@@ -46,7 +46,7 @@ const Blog = () => {
       date: "2024-01-01",
       readTime: "6 min read",
       category: "Security",
-      image: "/lovable-uploads/23406833-acac-4fe5-a7ce-9bbf22854357.png",
+        image: "/work/cyber.png",
       featured: false
     }
   ];
@@ -54,12 +54,13 @@ const Blog = () => {
   const categories = ["All", "AI & Technology", "Frontend Development", "Backend Development", "Security", "Mobile Development"];
 
   return (
-    <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8">
+    <section className="py-10 md:py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">
-            Our <span className="gradient-primary bg-clip-text text-transparent">Blog</span>
+          <h1 className="text-3xl sm:text-4xl md:text-3xl lg:text-3xl font-bold mb-4 md:mb-6">
+           <span className="dark:gradient-primary bg-[linear-gradient(135deg,hsl(var(--primary-light)),hsl(var(--secondary-light)))] px-2 py-1 rounded">
+           Our Blog</span>
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
             Stay updated with the latest insights, trends, and best practices in software development 

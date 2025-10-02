@@ -19,7 +19,8 @@ import {
   Layers,
   Settings
 } from "lucide-react";
-
+import { useState } from "react";
+import ScheduleConsultationModal from "./ScheduleConsultation";
 const Solutions = () => {
   const mainSolutions = [
     {
@@ -189,17 +190,17 @@ const Solutions = () => {
       metric: "< 2hr response time"
     }
   ];
-
+const [isOpen, setIsOpen] = useState(false);
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8">
+    <section className="py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <Badge variant="secondary" className="mb-4">
+          <Badge variant="secondary" className="mb-6">
             Our Solutions
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Comprehensive <span className="gradient-primary bg-clip-text text-transparent">Technology Solutions</span>
+          <h1 className="text-3xl md:text-3xl font-bold mb-6">
+             <span className="dark:gradient-primary bg-[linear-gradient(135deg,hsl(var(--primary-light)),hsl(var(--secondary-light)))] px-2 py-1 rounded">Comprehensive Technology Solutions</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             From concept to deployment, we provide end-to-end software development services 
@@ -248,7 +249,7 @@ const Solutions = () => {
                   </div>
                 </div>
                 
-                <Button className="w-full group">
+                <Button variant="default" className="gradient-primary text-white font-semibold shadow-primary w-full">
                   Learn More
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
@@ -260,7 +261,8 @@ const Solutions = () => {
         {/* Benefits Section */}
         <div className="mb-20">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-3xl font-bold mb-4">
+              
               Why Choose Our Solutions?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -330,7 +332,7 @@ const Solutions = () => {
         {/* Development Process */}
         <div className="mb-20">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-3xl font-bold mb-4">
               Our Development Process
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -374,7 +376,7 @@ const Solutions = () => {
         {/* Industry-Specific Solutions */}
         <div className="mb-20">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-3xl font-bold mb-4">
               Industry-Specific Solutions
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -429,13 +431,13 @@ const Solutions = () => {
             <Award className="h-5 w-5 text-primary" />
             <span className="text-sm text-muted-foreground">Trusted by 500+ companies worldwide</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Transform Your Business?</h2>
+          <h2 className="text-3xl md:text-3xl font-bold mb-4">Ready to Transform Your Business?</h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Let's discuss your project requirements and find the perfect solution for your business needs. 
             Our experts are ready to help you achieve your technology goals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="gradient-primary text-white">
+            <Button size="lg" className="gradient-primary text-white" onClick={() => setIsOpen(true)}>
               <Settings className="mr-2 h-5 w-5" />
               Schedule Consultation
             </Button>
@@ -445,6 +447,7 @@ const Solutions = () => {
           </div>
         </div>
       </div>
+       <ScheduleConsultationModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </section>
   );
 };

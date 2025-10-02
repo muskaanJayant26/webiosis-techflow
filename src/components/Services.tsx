@@ -85,8 +85,7 @@ const Services = () => {
             Our Expertise
           </Badge>
           <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 md:mb-6">
-            From Concept to
-            <span className="gradient-primary bg-clip-text text-transparent"> Completion</span>
+            From Concept to Completion
           </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto px-4">
             We offer end-to-end technology solutions powered by our elite team of engineers,

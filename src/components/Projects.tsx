@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, Star, Users, Clock, TrendingUp } from "lucide-react";
+import brush from "../assets/image.png"; 
 
 const Projects = () => {
   const projects = [
@@ -75,9 +76,11 @@ const Projects = () => {
           <Badge variant="outline" className="mb-4 text-primary border-primary/20">
             Our Portfolio
           </Badge>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold gradient-primary bg-clip-text text-transparent mb-4 md:mb-6">
-            Transforming Ideas into Digital Reality
-          </h2>
+      
+      <h2 className="dark:gradient-primary text-2xl sm:text-3xl md:text-4xl bg-[linear-gradient(135deg,hsl(var(--primary-light)),hsl(var(--secondary-light)))] lg:text-5xl font-bold p-2 mb-4 md:mb-6">
+        Transforming Ideas into Digital Reality
+      </h2>
+
           <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-3xl mx-auto px-4">
             Explore our carefully crafted projects that showcase innovation, technical excellence, and 
             user-centric design across various industries and technologies.
