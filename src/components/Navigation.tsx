@@ -139,7 +139,9 @@ const { theme, toggleTheme } = useTheme();
               </div>
               <div className="mt-4">
                 <Button variant="default" className="w-full gradient-primary text-white font-semibold">
+                   <a href="/contact">
                   Get Started
+                     </a>
                 </Button>
               </div>
             </div>
@@ -152,5 +154,6 @@ const { theme, toggleTheme } = useTheme();
 
 
 export default Navigation;
+
 
 
